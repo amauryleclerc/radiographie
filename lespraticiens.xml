@@ -6,6 +6,9 @@
     <void property="login">
      <string>aleclerc</string>
     </void>
+    <void property="mdp">
+     <string>test</string>
+    </void>
     <void property="nom">
      <string>LECLERC</string>
     </void>
@@ -18,6 +21,9 @@
    <object class="modele.metier.Praticien">
     <void property="login">
      <string>qsdfqsdf</string>
+    </void>
+    <void property="mdp">
+     <string>test</string>
     </void>
     <void property="nom">
      <string>qsdfqsf</string>

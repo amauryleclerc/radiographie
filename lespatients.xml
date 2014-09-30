@@ -6,12 +6,21 @@
     <void property="login">
      <string>tmartineau</string>
     </void>
+    <void property="mdp">
+     <string>Q1hOuX</string>
+    </void>
     <void property="mesRadiographie">
      <object class="java.util.ArrayList">
       <void method="add">
        <object class="modele.metier.Radiographie">
         <void property="datePrise">
          <string>26/09/2014</string>
+        </void>
+        <void property="etat">
+         <object class="java.lang.Enum" method="valueOf">
+          <class>modele.metier.Etat</class>
+          <string>effectuée</string>
+         </object>
         </void>
         <void property="mesCliches">
          <object class="java.util.ArrayList">
@@ -34,6 +43,12 @@
         <void property="numExam">
          <int>1</int>
         </void>
+        <void property="typeRadio">
+         <object class="java.lang.Enum" method="valueOf">
+          <class>modele.metier.TypeRadio</class>
+          <string>echographieUltraSons</string>
+         </object>
+        </void>
        </object>
       </void>
       <void method="add">
@@ -41,11 +56,23 @@
         <void property="datePrise">
          <string>27/09/2014</string>
         </void>
+        <void property="etat">
+         <object class="java.lang.Enum" method="valueOf">
+          <class>modele.metier.Etat</class>
+          <string>planifiée</string>
+         </object>
+        </void>
         <void property="mesCliches">
          <object class="java.util.ArrayList"/>
         </void>
         <void property="numExam">
          <int>2</int>
+        </void>
+        <void property="typeRadio">
+         <object class="java.lang.Enum" method="valueOf">
+          <class>modele.metier.TypeRadio</class>
+          <string>IRM</string>
+         </object>
         </void>
        </object>
       </void>
