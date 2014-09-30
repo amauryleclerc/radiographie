@@ -84,8 +84,25 @@ public class Interface {
 		}else if(cr.isSecretaireConnecte()){
 	
 		}else if(cr.isPatientConnecte()){
-			System.out.println("Vos informations :");
-			((Patient) cr.getPersonneConnecte()).afficheTout();
+			System.out.println("Taper");
+			System.out.println("1 - pour afficher vos information");
+			System.out.println("0 - déconnexion");
+			System.out.println("choix :");
+			String choix = Lire.S();
+			switch (choix) {
+			case "1":
+				System.out.println("Vos informations :");
+				((Patient) cr.getPersonneConnecte()).afficheTout();
+				break;
+			case "0":
+				cr.deconnexion();
+				this.connexion();
+				break;
+		
+			default:
+				break;
+			}
+	
 		}else{
 			this.connexion();
 		}
