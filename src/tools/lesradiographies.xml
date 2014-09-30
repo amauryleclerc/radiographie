@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.7.0_60" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="modele.metier.Radiographie">
+    <void property="datePrise">
+     <string>26/09/2014</string>
+    </void>
+    <void property="mesCliches">
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <object class="modele.metier.Cliche">
+        <void property="numPrise">
+         <int>1</int>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="modele.metier.Cliche">
+        <void property="numPrise">
+         <int>2</int>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void property="numExam">
+     <int>1</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="modele.metier.Radiographie">
+    <void property="datePrise">
+     <string>27/09/2014</string>
+    </void>
+    <void property="mesCliches">
+     <object class="java.util.ArrayList"/>
+    </void>
+    <void property="numExam">
+     <int>2</int>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
