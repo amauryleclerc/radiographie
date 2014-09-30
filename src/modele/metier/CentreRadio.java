@@ -119,6 +119,9 @@ lesPatients.add(new Patient(nom, prenom, numSECU));
 		this.lesPatients.get(num).afficheTout();
 
 	}
+	public void regenererIdUnPatient(int num) {
+		this.lesPatients.get(num).newidentifiant();
+	}
 
 	public void afficheRadiographie() {
 		for (Radiographie unRadiographie : lesRadiographies) {

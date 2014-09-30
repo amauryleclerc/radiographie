@@ -124,12 +124,23 @@ public class Interface {
 		}
 	}
 	private void modifierPatient(){
-		System.out.println("Supprimer un patient");
+		System.out.println("Modifier un patient");
 		this.affichePatients();
 		System.out.println("numero du patient à modifier:");
 		int numPatient = Lire.i()-1;
 		cr.afficheToutUnPatient(numPatient);
+		System.out.println("Taper");
+		System.out.println("1 - pour regénérer des identifiants");
+		System.out.println("choix :");
+		String choix = Lire.S();
+		switch (choix) {
+		case "1":
+			cr.regenererIdUnPatient(numPatient);
+			break;
 	
+		default:
+			break;
+		}
 		try {
 			cr.enregistrer(ch);
 		} catch (IOException e) {
