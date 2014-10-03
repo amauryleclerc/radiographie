@@ -6,7 +6,7 @@ import java.io.IOException;
 import clavier.Lire;
 import modele.metier.CentreRadio;
 import modele.metier.Patient;
-/* test */
+
 public class Interface {
 	CentreRadio cr;
 	String ch ;
@@ -60,6 +60,18 @@ public class Interface {
 			String choix = Lire.S();
 			
 			switch (choix) {
+			case "1":
+				this.creerRadiographie();
+				break;
+			case "2":
+				this.afficheRadiographie();
+				break;
+			case "3":
+				this.modifierRadiographie();
+				break;
+			case "4":
+				this.supprimerRadiographie();
+				break;
 			case "5":
 				this.creerPatient();
 				break;
@@ -82,7 +94,30 @@ public class Interface {
 			Lire.S();
 			this.menuPrincipal();
 		}else if(cr.isSecretaireConnecte()){
-	
+			System.out.println("Taper");
+			System.out.println("1 - pour consulter une radiographie");
+			System.out.println("2 - pour afficher les patients");
+			System.out.println(" ");
+			System.out.println("0 - déconnexion");
+			System.out.println("Choix :");
+			String choix = Lire.S();
+			switch (choix) {
+			case "1":
+				this.afficheRadiographie();
+				break;
+			case "2":
+				this.affichePatients();
+				break;
+			case "0":
+				cr.deconnexion();
+				this.connexion();
+				break;
+			default:
+				break;
+			}
+			Lire.S();
+			this.menuPrincipal();
+			
 		}else if(cr.isPatientConnecte()){
 			System.out.println("Taper");
 			System.out.println("1 - pour afficher vos information");
@@ -107,7 +142,22 @@ public class Interface {
 			this.connexion();
 		}
 	}
-	
+	private void creerRadiographie(){
+		System.out.println("Création d'une radiographie :");
+		
+	}
+	private void afficheRadiographie(){
+		System.out.println("Afficher les radiographie :");
+	cr.afficheRadiographie();
+	}
+	private void modifierRadiographie(){
+		System.out.println("Modifier une radiographie :");
+
+	}
+	private void supprimerRadiographie(){
+		System.out.println("Supprimmer une radiographie :");
+
+	}
 	private void creerPatient(){
 		System.out.println("Création d'un patient :");
 		System.out.println("nom :");

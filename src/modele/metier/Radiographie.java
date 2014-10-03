@@ -11,6 +11,8 @@ public class Radiographie {
 	private CompteRendu compteRendu;
 	private Etat etat;
 	private TypeRadio typeRadio;
+	private Patient patient;
+	private Praticien praticien;
 
 	public Radiographie() {
 		super();
@@ -27,7 +29,7 @@ public class Radiographie {
 		this.typeRadio = typeRadio;
 	}
 
-	public Radiographie(String datePrise, Etat etat, TypeRadio typeRadio) {
+	public Radiographie(String datePrise, Etat etat, TypeRadio typeRadio, Praticien praticien, Patient patient) {
 		super();
 		lastNumExam++;
 		this.mesCliches = new ArrayList<Cliche>();
@@ -35,6 +37,8 @@ public class Radiographie {
 		this.numExam = lastNumExam;
 		this.etat = etat;
 		this.typeRadio = typeRadio;
+		this.patient = patient;
+		this.praticien = praticien;
 	}
 
 	public void ajouterCliches(int nbCliches) {
@@ -113,6 +117,27 @@ public class Radiographie {
 		} else {
 			this.etat = Etat.effectuée;
 		}
+	}
+
+	public void afficher() {
+		// TODO Auto-generated method stub
+		System.out.println(this.numExam+" "+this.typeRadio+" "+this.datePrise+" "+this.getEtat());
+	}
+
+	public Praticien getPraticien() {
+		return praticien;
+	}
+
+	public void setPraticien(Praticien praticien) {
+		this.praticien = praticien;
+	}
+
+	public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
 	}
 
 }

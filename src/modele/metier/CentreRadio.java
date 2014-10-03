@@ -63,11 +63,7 @@ public class CentreRadio {
 	 * @param mdp
 	 * @param login
 	 */
-	/*public void creerPatient(String nom, String prenom, String numSECU,
-			String login, String mdp) {
 
-		lesPatients.add(new Patient(nom, prenom, login, mdp, numSECU));
-	}*/
 	public void creerPatient(String nom, String prenom, String numSECU) {
 
 lesPatients.add(new Patient(nom, prenom, numSECU));
@@ -94,7 +90,7 @@ lesPatients.add(new Patient(nom, prenom, numSECU));
 		if(!isPraticienConnecte()){
 			System.out.println("ERREUR DROIT: vous n etes pas autorisé à créer une radiographie");
 		}else{
-			Radiographie radiographie = new Radiographie( datePrise, etat, typeRadio);
+			Radiographie radiographie = new Radiographie( datePrise, etat, typeRadio, (Praticien) this.getPersonneConnecte(), patient);
 			radiographie.ajouterCliches(nbRadio);
 			patient.getMesRadiographie().add(radiographie);
 			this.lesRadiographies.add(radiographie);
@@ -102,7 +98,14 @@ lesPatients.add(new Patient(nom, prenom, numSECU));
 		}
 
 	}
+public void afficheRadiographies(){
 
+	for (Radiographie uneRadiographie : lesRadiographies){
+	
+		System.out.print(" ");
+		uneRadiographie.afficher();
+	}
+}
 	public void affichePatients() {
 		int i=0;
 		for (Patient unPatient : lesPatients) {
