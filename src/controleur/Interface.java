@@ -2,10 +2,14 @@ package controleur;
 
 import java.io.Console;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.util.Date;
 
 import clavier.Lire;
 import modele.metier.CentreRadio;
+import modele.metier.Etat;
 import modele.metier.Patient;
+import modele.metier.TypeRadio;
 
 public class Interface {
 	CentreRadio cr;
@@ -143,12 +147,45 @@ public class Interface {
 		}
 	}
 	private void creerRadiographie(){
+
 		System.out.println("Création d'une radiographie :");
+		System.out.println("patient :");
+		cr.affichePatients();
+		System.out.println("numero de patient :");
+		int numPatient = Lire.i();
+
+		System.out.println("date :");
+		String datePrise = Lire.S();
+		System.out.println("compteRendu :");
+		String compteRendu = Lire.S();
+		System.out.println("numero de l'etat :");
+		int i =0;
+		for(Etat etat : Etat.values()){
+			i++;
+			System.out.println(i+" "+etat.name());
+		}
+		Etat etat = Etat.values()[Lire.i()-1];
 		
+		System.out.println("Numero du type de radiographie :");
+		i=0;
+		for(TypeRadio typeRadio : TypeRadio.values()){
+			i++;
+			System.out.println(i+" "+typeRadio.name());
+		}
+		TypeRadio typeRadio = TypeRadio.values()[Lire.i()-1];
+		System.out.println("Nombre de radiographie :");
+		int nbRadio = Lire.i();
+		cr.creerRadiographie(numPatient, datePrise, compteRendu, etat, typeRadio, nbRadio);
+		try {
+			cr.enregistrer(ch);
+		} catch (IOException e) {
+			System.out.println("Erreur : enregistrement impossible");
+		}
+
 	}
 	private void afficheRadiographie(){
 		System.out.println("Afficher les radiographie :");
-	cr.afficheRadiographie();
+		cr.afficheRadiographie();
 	}
 	private void modifierRadiographie(){
 		System.out.println("Modifier une radiographie :");
