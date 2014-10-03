@@ -152,7 +152,7 @@ public class Interface {
 		System.out.println("patient :");
 		cr.affichePatients();
 		System.out.println("numero de patient :");
-		int numPatient = Lire.i();
+		int numPatient = Lire.i()-1;
 
 		System.out.println("date :");
 		String datePrise = Lire.S();
