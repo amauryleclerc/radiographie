@@ -6,7 +6,7 @@ import java.io.IOException;
 import clavier.Lire;
 import modele.metier.CentreRadio;
 import modele.metier.Patient;
-
+/* test */
 public class Interface {
 	CentreRadio cr;
 	String ch ;
