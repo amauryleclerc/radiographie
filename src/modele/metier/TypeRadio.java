@@ -1,5 +1,8 @@
 package modele.metier;
-
+/*
+ * Classe d'énumération TypeRadio
+ * Elle permet de définir le type de radiographie ajouté.
+ */
 public enum TypeRadio {
 	rayonsX,
 	echographieUltraSons,
@@ -8,4 +11,4 @@ public enum TypeRadio {
 
 
 
-}
+}//Fin de la classe TypeRadio

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.7.0_25" class="java.beans.XMLDecoder">
+<java version="1.7.0_67" class="java.beans.XMLDecoder">
  <object class="java.util.ArrayList">
   <void method="add">
-   <object class="modele.metier.Radiographie">
+   <object class="modele.metier.Radiographie" id="Radiographie0">
     <void property="datePrise">
      <string>26/09/2014</string>
     </void>
@@ -33,8 +33,81 @@
     <void property="numExam">
      <int>1</int>
     </void>
+    <void property="patient">
+     <object class="modele.metier.Patient" id="Patient0">
+      <void property="login">
+       <string>tmartineau</string>
+      </void>
+      <void property="mdp">
+       <string>ApZxg4</string>
+      </void>
+      <void property="mesRadiographie">
+       <object class="java.util.ArrayList">
+        <void method="add">
+         <object idref="Radiographie0"/>
+        </void>
+        <void method="add">
+         <object class="modele.metier.Radiographie" id="Radiographie1">
+          <void property="datePrise">
+           <string>27/09/2014</string>
+          </void>
+          <void property="etat">
+           <object class="java.lang.Enum" id="Etat1" method="valueOf">
+            <class>modele.metier.Etat</class>
+            <string>planifiée</string>
+           </object>
+          </void>
+          <void property="mesCliches">
+           <object class="java.util.ArrayList"/>
+          </void>
+          <void property="numExam">
+           <int>2</int>
+          </void>
+          <void property="patient">
+           <object idref="Patient0"/>
+          </void>
+          <void property="praticien">
+           <object class="modele.metier.Praticien" id="Praticien0">
+            <void property="login">
+             <string>aleclerc</string>
+            </void>
+            <void property="mdp">
+             <string>test</string>
+            </void>
+            <void property="nom">
+             <string>LECLERC</string>
+            </void>
+            <void property="prenom">
+             <string>Amaury</string>
+            </void>
+           </object>
+          </void>
+          <void property="typeRadio">
+           <object class="java.lang.Enum" id="TypeRadio0" method="valueOf">
+            <class>modele.metier.TypeRadio</class>
+            <string>IRM</string>
+           </object>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+      <void property="nom">
+       <string>MARTINEAU</string>
+      </void>
+      <void property="numSECU">
+       <string>230230230121</string>
+      </void>
+      <void property="prenom">
+       <string>Thomas</string>
+      </void>
+     </object>
+    </void>
+    <void property="praticien">
+     <object idref="Praticien0"/>
+    </void>
     <void property="typeRadio">
-     <object class="java.lang.Enum" id="TypeRadio0" method="valueOf">
+     <object class="java.lang.Enum" id="TypeRadio1" method="valueOf">
       <class>modele.metier.TypeRadio</class>
       <string>echographieUltraSons</string>
      </object>
@@ -42,37 +115,15 @@
    </object>
   </void>
   <void method="add">
-   <object class="modele.metier.Radiographie">
-    <void property="datePrise">
-     <string>27/09/2014</string>
-    </void>
-    <void property="etat">
-     <object class="java.lang.Enum" id="Etat1" method="valueOf">
-      <class>modele.metier.Etat</class>
-      <string>planifiée</string>
-     </object>
-    </void>
-    <void property="mesCliches">
-     <object class="java.util.ArrayList"/>
-    </void>
-    <void property="numExam">
-     <int>2</int>
-    </void>
-    <void property="typeRadio">
-     <object class="java.lang.Enum" id="TypeRadio1" method="valueOf">
-      <class>modele.metier.TypeRadio</class>
-      <string>IRM</string>
-     </object>
-    </void>
-   </object>
+   <object idref="Radiographie1"/>
   </void>
   <void method="add">
-   <object class="modele.metier.Radiographie" id="Radiographie0">
+   <object class="modele.metier.Radiographie" id="Radiographie2">
     <void property="datePrise">
-     <string>03/10/2014</string>
+     <string>04/10/2014</string>
     </void>
     <void property="etat">
-     <object idref="Etat0"/>
+     <object idref="Etat1"/>
     </void>
     <void property="mesCliches">
      <object class="java.util.ArrayList">
@@ -83,25 +134,18 @@
         </void>
        </object>
       </void>
-      <void method="add">
-       <object class="modele.metier.Cliche">
-        <void property="numPrise">
-         <int>2</int>
-        </void>
-       </object>
-      </void>
      </object>
     </void>
     <void property="numExam">
      <int>1</int>
     </void>
     <void property="patient">
-     <object class="modele.metier.Patient">
+     <object class="modele.metier.Patient" id="Patient1">
       <void property="login">
        <string>tmartineau</string>
       </void>
       <void property="mdp">
-       <string>Q1hOuX</string>
+       <string>ApZxg4</string>
       </void>
       <void property="mesRadiographie">
        <object class="java.util.ArrayList">
@@ -134,8 +178,27 @@
           <void property="numExam">
            <int>1</int>
           </void>
+          <void property="patient">
+           <object idref="Patient1"/>
+          </void>
+          <void property="praticien">
+           <object class="modele.metier.Praticien" id="Praticien1">
+            <void property="login">
+             <string>aleclerc</string>
+            </void>
+            <void property="mdp">
+             <string>test</string>
+            </void>
+            <void property="nom">
+             <string>LECLERC</string>
+            </void>
+            <void property="prenom">
+             <string>Amaury</string>
+            </void>
+           </object>
+          </void>
           <void property="typeRadio">
-           <object idref="TypeRadio0"/>
+           <object idref="TypeRadio1"/>
           </void>
          </object>
         </void>
@@ -153,13 +216,19 @@
           <void property="numExam">
            <int>2</int>
           </void>
+          <void property="patient">
+           <object idref="Patient1"/>
+          </void>
+          <void property="praticien">
+           <object idref="Praticien1"/>
+          </void>
           <void property="typeRadio">
-           <object idref="TypeRadio1"/>
+           <object idref="TypeRadio0"/>
           </void>
          </object>
         </void>
         <void method="add">
-         <object idref="Radiographie0"/>
+         <object idref="Radiographie2"/>
         </void>
        </object>
       </void>

@@ -6,14 +6,19 @@ import java.util.*;
 
 import tools.XMLTools;
 
+//Classe CentreRadio
 public class CentreRadio {
 	
+	/*Attributs
+	 * ArrayList Pour chaque type de personne et pour les différentes radiographies
+	 */
 	private ArrayList<Radiographie> lesRadiographies;
 	private ArrayList<Patient> lesPatients;
 	private ArrayList<Praticien> lesPraticiens;
 	private ArrayList<Secretaire> lesSecretaires;
 	private Personne personneConnecte = null;
 	
+	//Constructeurs avec paramètre
 	public CentreRadio(ArrayList<Radiographie> lesRadiographies, ArrayList<Patient> lesPatients,
 			ArrayList<Praticien> lesPraticiens, ArrayList<Secretaire> lesSecretaires) {
 		super();
@@ -30,10 +35,13 @@ public class CentreRadio {
 		this.lesSecretaires = new ArrayList<Secretaire>();
 	}
 	
+	//Accesseurs
 	public Personne getPersonneConnecte() {
 		return personneConnecte;
 	}
-	
+	/*Méthodes permettant de vérifier quel type de personne est connecté
+	 * Praticien ou Secretaire ou Patient
+	 */
 	public boolean isPraticienConnecte() {
 		if (getPersonneConnecte() instanceof Praticien) {
 			return true;
@@ -66,7 +74,10 @@ public class CentreRadio {
 	 * @param mdp
 	 * @param login
 	 */
-	
+	/*
+	 * Méthodes qui servent a créer un type de personne selon 
+	 * leur paramètre propre à chacun
+	 */
 	public void creerPatient(String nom, String prenom, String numSECU) {
 		
 		lesPatients.add(new Patient(nom, prenom, numSECU));
@@ -88,6 +99,7 @@ public class CentreRadio {
 	 * @param datePrise
 	 * @param compteRendu
 	 */
+	//Méthodes qui permetent de créer une radiographie seulement si c'est un prtaticien connecté
 	public void creerRadiographie(Patient patient, String datePrise, String compteRendu, Etat etat,
 			TypeRadio typeRadio, int nbRadio) {
 		if (!isPraticienConnecte()) {
@@ -118,7 +130,7 @@ public class CentreRadio {
 		}
 		
 	}
-	
+	//Méthode qui permet d'afficher les radiographies
 	public void afficheRadiographies() {
 		
 		for (Radiographie uneRadiographie : lesRadiographies) {
@@ -127,7 +139,7 @@ public class CentreRadio {
 			uneRadiographie.afficher();
 		}
 	}
-	
+	//Méthode qui affiche la liste des patients enregistrés
 	public void affichePatients() {
 		int i = 0;
 		for (Patient unPatient : lesPatients) {
@@ -136,27 +148,27 @@ public class CentreRadio {
 			unPatient.afficher();
 		}
 	}
-	
+	//Méthode qui permet d'afficher un seul patient
 	public void afficheUnPatient(int num) {
 		this.lesPatients.get(num).afficher();
 		
 	}
-	
+	//Méthode qui permet d'afficher un patient et ces informations grâce a la méthode afficheTout de patient
 	public void afficheToutUnPatient(int num) {
 		this.lesPatients.get(num).afficheTout();
 		
 	}
-	
+	//Méthode qui sert a regénérer les identifiant d'un patient
 	public void regenererIdUnPatient(int num) {
 		this.lesPatients.get(num).newidentifiant();
 	}
-	
+	//Méthode qui sert a afficher une radiographie
 	public void afficheRadiographie() {
 		for (Radiographie unRadiographie : lesRadiographies) {
 			System.out.println(unRadiographie.toString());
 		}
 	}
-	
+	//Méthode qui permet de supprimer un patient
 	public void supprimerPatient(int num) {
 		System.out.println("Suppression de :");
 		this.lesPatients.remove(num).afficher();
@@ -168,6 +180,7 @@ public class CentreRadio {
 	 * @param login
 	 * @param mdp
 	 */
+	//méthode pour la connexion selon le type de personne reconnu grâce au mdp et au login
 	public boolean connexion(String login, String mdp) {
 		this.deconnexion();
 		for (Patient unPatient : lesPatients) {
@@ -197,7 +210,7 @@ public class CentreRadio {
 		System.out.println("login ou mot de passe incorrect");
 		return false;
 	}
-	
+	//Méthode qui permet de se déconnecter
 	public void deconnexion() {
 		if (this.personneConnecte != null) {
 			System.out.println("DÃ©connection de " + this.personneConnecte.getPrenom() + " "
@@ -220,6 +233,7 @@ public class CentreRadio {
 		XMLTools.encodeToFile(this.lesSecretaires, fileLocation + "\\lessecretaires.xml");
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void charger(String fileLocation) throws FileNotFoundException, IOException {
 		
 		this.lesPraticiens = (ArrayList<Praticien>) XMLTools.decodeFromFile(fileLocation
@@ -271,4 +285,4 @@ public class CentreRadio {
 		
 	}
 	
-}
+}//Fin de la classe 

@@ -1,9 +1,10 @@
 package modele.metier;
 
 import java.util.*;
-
+//Classe Radiographie
 public class Radiographie {
 
+	//Attributs
 	private ArrayList<Cliche> mesCliches;
 	private static int lastNumExam = 0;
 	private int numExam;
@@ -14,10 +15,11 @@ public class Radiographie {
 	private Patient patient;
 	private Praticien praticien;
 
+	//Constructeur sans paramètre
 	public Radiographie() {
 		super();
 	}
-
+	//Constructeurs avec paramètre
 	public Radiographie(ArrayList<Cliche> mesCliches, String datePrise,
 			Etat etat, TypeRadio typeRadio) {
 		super();
@@ -49,12 +51,13 @@ public class Radiographie {
 		}
 	}
 
+	//la méthode toString,renvoie une chaîne de caractères servant à décrire l'objet concerné
 	@Override
 	public String toString() {
 		return "Radiographies [mesCliches=" + mesCliches + ", datePrise="
 				+ datePrise + "]";
 	}
-
+	//Accesseurs
 	public static void setLastNumExam(int lastNumExam) {
 		Radiographie.lastNumExam = lastNumExam;
 	}
@@ -110,7 +113,7 @@ public class Radiographie {
 	public TypeRadio getTypeRadio() {
 		return typeRadio;
 	}
-
+	//Méthode permettant de changer l'état de la radiographie
 	public void changeEtat() {
 		if (this.etat.equals(Etat.effectuée)) {
 			this.etat = Etat.planifiée;
@@ -118,7 +121,7 @@ public class Radiographie {
 			this.etat = Etat.effectuée;
 		}
 	}
-
+	//Méthode d'affichage des informations concernant les radiographies
 	public void afficher() {
 		// TODO Auto-generated method stub
 		System.out.println(this.numExam+" "+this.typeRadio+" "+this.datePrise+" "+this.getEtat());
@@ -140,4 +143,4 @@ public class Radiographie {
 		this.patient = patient;
 	}
 
-}
+}//Fin de classe Radiographie

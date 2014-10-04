@@ -11,9 +11,12 @@ import modele.metier.Etat;
 import modele.metier.Patient;
 import modele.metier.TypeRadio;
 
+//Classe interface
 public class Interface {
+	//Attributs
 	CentreRadio cr;
 	String ch ;
+	//Constructeurs avec paramètre
 	public Interface() {
 		super();
 		this.cr = new CentreRadio();
@@ -25,11 +28,12 @@ public class Interface {
 			e.printStackTrace();
 		}
 	}
+	
 	public static void main(String args[]) {
 		Interface in = new Interface();
 		in.connexion();
 	}
-	
+	//Méthode pour gérer la connexion via la console
 	private void connexion(){
 		System.out.println("Bienvenue");
 		System.out.println("Login :");
@@ -45,6 +49,7 @@ public class Interface {
 		this.menuPrincipal();
 		
 	}
+	//Méthode qui affiche le menu principal avec les différentes possibilités d'actions selon le type de personne
 	private void menuPrincipal(){
 		
 		if(cr.isPraticienConnecte()){
@@ -146,6 +151,7 @@ public class Interface {
 			this.connexion();
 		}
 	}
+	//Méthode qui permet de créer la radiographie d'un patient
 	private void creerRadiographie(){
 
 		System.out.println("Création d'une radiographie :");
@@ -183,6 +189,7 @@ public class Interface {
 		}
 
 	}
+	//Méthode pour afficher,modifier,supprimer les radiographies
 	private void afficheRadiographie(){
 		System.out.println("Afficher les radiographie :");
 		cr.afficheRadiographie();
@@ -195,6 +202,7 @@ public class Interface {
 		System.out.println("Supprimmer une radiographie :");
 
 	}
+	//Méthode qui sert a créer un patient
 	private void creerPatient(){
 		System.out.println("Création d'un patient :");
 		System.out.println("nom :");
@@ -210,6 +218,7 @@ public class Interface {
 			System.out.println("Erreur : enregistrement impossible");
 		}
 	}
+	//Méthode qui permet de modifier un patient
 	private void modifierPatient(){
 		System.out.println("Modifier un patient");
 		this.affichePatients();
@@ -234,10 +243,12 @@ public class Interface {
 			System.out.println("Erreur : enregistrement impossible");
 		}
 	}
+	//Méthode pour afficher un patient
 	private void affichePatients(){
 		System.out.println("Les patients :");
 		cr.affichePatients();
 	}
+	//Méthode pour supprimer un patient
 	private void supprimerPatient(){
 		System.out.println("Supprimer un patient");
 		this.affichePatients();
@@ -260,4 +271,4 @@ public class Interface {
 		
 	}
 
-}
+}//Fin de la classe interface
