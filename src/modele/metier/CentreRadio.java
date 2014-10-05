@@ -2,6 +2,8 @@ package modele.metier;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import modele.comparator.RadioDateComparator;
@@ -168,7 +170,7 @@ public class CentreRadio {
 	//Méthode qui sert a afficher une radiographie
 	public void afficheRadiographie() {
 		for (Radiographie unRadiographie : lesRadiographies) {
-			System.out.println(unRadiographie.toString());
+			unRadiographie.afficher();
 		}
 	}
 	//Méthode qui permet de supprimer un patient
@@ -261,7 +263,7 @@ public class CentreRadio {
 		RadioDateComparator radioDateComparator = new RadioDateComparator();
 		Collections.sort(lesRadiographies, radioDateComparator);
 	}
-	public static void main(String args[]) {
+	public static void main(String args[]) throws ParseException {
 		String ch = System.getProperty("user.dir");
 		System.out.println(ch);
 		CentreRadio cr = new CentreRadio();
@@ -274,10 +276,10 @@ public class CentreRadio {
 		// cr.connexion("tmartineau", "test");
 		
 		System.out.println("personeConnecte " + cr.isPersConnecte());
-		
-		cr.creerRadiographie(cr.lesPatients.get(0), new Date("26/09/2014"), "compterendu.txt",
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		cr.creerRadiographie(cr.lesPatients.get(0), sdf.parse("26/09/2014"), "compterendu.txt",
 				Etat.effectuée, TypeRadio.echographieUltraSons, 2);
-		cr.creerRadiographie(cr.lesPatients.get(0), new Date("27/09/2014"), "compterendu.txt",
+		cr.creerRadiographie(cr.lesPatients.get(0),sdf.parse("27/09/2014"), "compterendu.txt",
 				Etat.planifiée, TypeRadio.IRM, 0);
 		cr.affichePatients();
 		cr.afficheRadiographie();
