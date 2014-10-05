@@ -213,7 +213,7 @@ public class CentreRadio {
 	//Méthode qui permet de se déconnecter
 	public void deconnexion() {
 		if (this.personneConnecte != null) {
-			System.out.println("DÃ©connection de " + this.personneConnecte.getPrenom() + " "
+			System.out.println("Déconnection de " + this.personneConnecte.getPrenom() + " "
 					+ this.personneConnecte.getNom());
 			
 		}

@@ -1,6 +1,5 @@
 package controleur;
 
-import java.io.Console;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Date;
@@ -151,7 +150,9 @@ public class Interface {
 			this.connexion();
 		}
 	}
-	//Méthode qui permet de créer la radiographie d'un patient
+	/**
+	 * Méthode qui permet de créer la radiographie d'un patient
+	 */
 	private void creerRadiographie(){
 
 		System.out.println("Création d'une radiographie :");
