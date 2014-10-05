@@ -12,14 +12,15 @@ import modele.metier.TypeRadio;
 
 //Classe interface
 public class Interface {
-	//Attributs
+	// Attributs
 	CentreRadio cr;
-	String ch ;
-	//Constructeurs avec paramètre
+	String ch;
+	
+	// Constructeurs avec paramètre
 	public Interface() {
 		super();
 		this.cr = new CentreRadio();
-		this.ch  =  System.getProperty("user.dir");
+		this.ch = System.getProperty("user.dir");
 		try {
 			cr.charger(ch);
 		} catch (IOException e) {
@@ -32,26 +33,29 @@ public class Interface {
 		Interface in = new Interface();
 		in.connexion();
 	}
-	//Méthode pour gérer la connexion via la console
-	private void connexion(){
+	
+	// Méthode pour gérer la connexion via la console
+	private void connexion() {
 		System.out.println("Bienvenue");
 		System.out.println("Login :");
 		String login = Lire.S();
 		System.out.println("Mot de passe :");
 		String mdp = Lire.S();
-		while(!cr.connexion(login, mdp)){
+		while (!cr.connexion(login, mdp)) {
 			System.out.println("Login :");
-			 login = Lire.S();
+			login = Lire.S();
 			System.out.println("Mot de passe :");
-			 mdp = Lire.S();
+			mdp = Lire.S();
 		}
 		this.menuPrincipal();
 		
 	}
-	//Méthode qui affiche le menu principal avec les différentes possibilités d'actions selon le type de personne
-	private void menuPrincipal(){
+	
+	// Méthode qui affiche le menu principal avec les différentes possibilités
+	// d'actions selon le type de personne
+	private void menuPrincipal() {
 		
-		if(cr.isPraticienConnecte()){
+		if (cr.isPraticienConnecte()) {
 			System.out.println("Taper");
 			System.out.println("1 - pour créer une radiographie");
 			System.out.println("2 - pour consulter une radiographie");
@@ -90,7 +94,8 @@ public class Interface {
 				this.modifierPatient();
 				break;
 			case "8":
-				this.supprimerPatient();;
+				this.supprimerPatient();
+				;
 				break;
 			case "0":
 				cr.deconnexion();
@@ -101,7 +106,7 @@ public class Interface {
 			}
 			Lire.S();
 			this.menuPrincipal();
-		}else if(cr.isSecretaireConnecte()){
+		} else if (cr.isSecretaireConnecte()) {
 			System.out.println("Taper");
 			System.out.println("1 - pour consulter une radiographie");
 			System.out.println("2 - pour afficher les patients");
@@ -126,7 +131,7 @@ public class Interface {
 			Lire.S();
 			this.menuPrincipal();
 			
-		}else if(cr.isPatientConnecte()){
+		} else if (cr.isPatientConnecte()) {
 			System.out.println("Taper");
 			System.out.println("1 - pour afficher vos information");
 			System.out.println("0 - déconnexion");
@@ -141,70 +146,94 @@ public class Interface {
 				cr.deconnexion();
 				this.connexion();
 				break;
-		
+			
 			default:
 				break;
 			}
-	
-		}else{
+			
+		} else {
 			this.connexion();
 		}
 	}
+	
 	/**
-	 * Méthode qui permet de créer la radiographie d'un patient
+	 * Méthode qui permet de créer la radiographie d'un patient </br> ATTENTION
+	 * il n y a aucun systeme de controle des données
 	 */
-	private void creerRadiographie(){
-
+	private void creerRadiographie() {
+		
 		System.out.println("Création d'une radiographie :");
 		System.out.println("patient :");
 		cr.affichePatients();
 		System.out.println("numero de patient :");
-		int numPatient = Lire.i()-1;
-
-		System.out.println("date :");
+		int numPatient = Lire.i() - 1;
+		
+		System.out.println("date (jj/mm/yyyy) :");
 		String datePrise = Lire.S();
 		System.out.println("compteRendu :");
 		String compteRendu = Lire.S();
 		System.out.println("numero de l'etat :");
-		int i =0;
-		for(Etat etat : Etat.values()){
+		int i = 0;
+		for (Etat etat : Etat.values()) {
 			i++;
-			System.out.println(i+" "+etat.name());
+			System.out.println(i + " " + etat.name());
 		}
-		Etat etat = Etat.values()[Lire.i()-1];
+		Etat etat = Etat.values()[Lire.i() - 1];
 		
 		System.out.println("Numero du type de radiographie :");
-		i=0;
-		for(TypeRadio typeRadio : TypeRadio.values()){
+		i = 0;
+		for (TypeRadio typeRadio : TypeRadio.values()) {
 			i++;
-			System.out.println(i+" "+typeRadio.name());
+			System.out.println(i + " " + typeRadio.name());
 		}
-		TypeRadio typeRadio = TypeRadio.values()[Lire.i()-1];
+		TypeRadio typeRadio = TypeRadio.values()[Lire.i() - 1];
 		System.out.println("Nombre de radiographie :");
 		int nbRadio = Lire.i();
-		cr.creerRadiographie(numPatient, datePrise, compteRendu, etat, typeRadio, nbRadio);
+		cr.creerRadiographie(numPatient, new Date(datePrise), compteRendu, etat, typeRadio, nbRadio);
 		try {
 			cr.enregistrer(ch);
 		} catch (IOException e) {
 			System.out.println("Erreur : enregistrement impossible");
 		}
-
+		
 	}
-	//Méthode pour afficher,modifier,supprimer les radiographies
-	private void afficheRadiographie(){
+	
+	// Méthode pour afficher,modifier,supprimer les radiographies
+	private void afficheRadiographie() {
 		System.out.println("Afficher les radiographie :");
+		this.trierRadiographie();
 		cr.afficheRadiographie();
+		System.out.println();
 	}
-	private void modifierRadiographie(){
+	
+	private void modifierRadiographie() {
 		System.out.println("Modifier une radiographie :");
-
 	}
-	private void supprimerRadiographie(){
+	
+	private void supprimerRadiographie() {
 		System.out.println("Supprimmer une radiographie :");
-
 	}
-	//Méthode qui sert a créer un patient
-	private void creerPatient(){
+	
+	private void trierRadiographie() {
+		System.out.println("trier Radiographie : 1 num - 2 patient - 3 date");
+		switch (Lire.S()) {
+		case "1":
+			cr.trierRadioParNum();
+			break;
+		case "2":
+			cr.trierRadioParPatient();
+			break;
+		case "3":
+			cr.trierRadioParDate();
+			break;
+		default:
+			break;
+		}
+		
+	}
+	
+	// Méthode qui sert a créer un patient
+	private void creerPatient() {
 		System.out.println("Création d'un patient :");
 		System.out.println("nom :");
 		String nom = Lire.S();
@@ -219,13 +248,14 @@ public class Interface {
 			System.out.println("Erreur : enregistrement impossible");
 		}
 	}
-	//Méthode qui permet de modifier un patient
-	private void modifierPatient(){
+	
+	// Méthode qui permet de modifier un patient
+	private void modifierPatient() {
 		System.out.println("Modifier un patient");
 		this.affichePatients();
 		System.out.println("numero du patient à modifier:");
-		int numPatient = Lire.i()-1;
-		//cr.afficheToutUnPatient(numPatient);
+		int numPatient = Lire.i() - 1;
+		// cr.afficheToutUnPatient(numPatient);
 		System.out.println("Taper");
 		System.out.println("1 - pour regénérer des identifiants");
 		System.out.println("choix :");
@@ -234,7 +264,7 @@ public class Interface {
 		case "1":
 			cr.regenererIdUnPatient(numPatient);
 			break;
-	
+		
 		default:
 			break;
 		}
@@ -244,32 +274,34 @@ public class Interface {
 			System.out.println("Erreur : enregistrement impossible");
 		}
 	}
-	//Méthode pour afficher un patient
-	private void affichePatients(){
+	
+	// Méthode pour afficher un patient
+	private void affichePatients() {
 		System.out.println("Les patients :");
 		cr.affichePatients();
 	}
-	//Méthode pour supprimer un patient
-	private void supprimerPatient(){
+	
+	// Méthode pour supprimer un patient
+	private void supprimerPatient() {
 		System.out.println("Supprimer un patient");
 		this.affichePatients();
 		System.out.println("numero du patient a supprimer:");
-		int numPatient = Lire.i()-1;
+		int numPatient = Lire.i() - 1;
 		System.out.print("Confirmation de suppression de :");
 		cr.afficheUnPatient(numPatient);
 		System.out.println("(o/n)");
 		char choix = Lire.c();
-		if(choix == 'o'){
+		if (choix == 'o') {
 			cr.supprimerPatient(numPatient);
 			try {
 				cr.enregistrer(ch);
 			} catch (IOException e) {
 				System.out.println("Erreur : enregistrement impossible");
 			}
-		}else{
+		} else {
 			System.out.println("Annulation");
 		}
 		
 	}
-
-}//Fin de la classe interface
+	
+}// Fin de la classe interface

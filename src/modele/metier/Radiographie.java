@@ -8,7 +8,7 @@ public class Radiographie {
 	private ArrayList<Cliche> mesCliches;
 	private static int lastNumExam = 0;
 	private int numExam;
-	private String datePrise;
+	private Date datePrise;
 	private CompteRendu compteRendu;
 	private Etat etat;
 	private TypeRadio typeRadio;
@@ -20,7 +20,7 @@ public class Radiographie {
 		super();
 	}
 	//Constructeurs avec paramètre
-	public Radiographie(ArrayList<Cliche> mesCliches, String datePrise,
+	public Radiographie(ArrayList<Cliche> mesCliches, Date datePrise,
 			Etat etat, TypeRadio typeRadio) {
 		super();
 		lastNumExam++;
@@ -31,7 +31,7 @@ public class Radiographie {
 		this.typeRadio = typeRadio;
 	}
 
-	public Radiographie(String datePrise, Etat etat, TypeRadio typeRadio, Praticien praticien, Patient patient) {
+	public Radiographie(Date datePrise, Etat etat, TypeRadio typeRadio, Praticien praticien, Patient patient) {
 		super();
 		lastNumExam++;
 		this.mesCliches = new ArrayList<Cliche>();
@@ -90,11 +90,11 @@ public class Radiographie {
 		this.numExam = numExam;
 	}
 
-	public String getDatePrise() {
+	public Date getDatePrise() {
 		return datePrise;
 	}
 
-	public void setDatePrise(String datePrise) {
+	public void setDatePrise(Date datePrise) {
 		this.datePrise = datePrise;
 	}
 

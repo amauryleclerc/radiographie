@@ -4,6 +4,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
 
+import modele.comparator.RadioDateComparator;
+import modele.comparator.RadioNumComparator;
+import modele.comparator.RadioPatientComparator;
 import tools.XMLTools;
 
 //Classe CentreRadio
@@ -100,7 +103,7 @@ public class CentreRadio {
 	 * @param compteRendu
 	 */
 	//Méthodes qui permetent de créer une radiographie seulement si c'est un prtaticien connecté
-	public void creerRadiographie(Patient patient, String datePrise, String compteRendu, Etat etat,
+	public void creerRadiographie(Patient patient, Date datePrise, String compteRendu, Etat etat,
 			TypeRadio typeRadio, int nbRadio) {
 		if (!isPraticienConnecte()) {
 			System.out.println("ERREUR DROIT: vous n etes pas autorisé à créer une radiographie");
@@ -115,7 +118,7 @@ public class CentreRadio {
 		
 	}
 	
-	public void creerRadiographie(int numPatient, String datePrise, String compteRendu, Etat etat,
+	public void creerRadiographie(int numPatient, Date datePrise, String compteRendu, Etat etat,
 			TypeRadio typeRadio, int nbRadio) {
 		Patient patient = this.lesPatients.get(numPatient);
 		if (!isPraticienConnecte()) {
@@ -246,6 +249,18 @@ public class CentreRadio {
 				+ "\\lessecretaires.xml");
 	}
 	
+	public void trierRadioParNum(){
+		RadioNumComparator radioNumComparator = new RadioNumComparator();
+		Collections.sort(lesRadiographies, radioNumComparator);
+	}
+	public void trierRadioParPatient(){
+		RadioPatientComparator radioPatientComparator = new RadioPatientComparator();
+		Collections.sort(lesRadiographies, radioPatientComparator);
+	}
+	public void trierRadioParDate(){
+		RadioDateComparator radioDateComparator = new RadioDateComparator();
+		Collections.sort(lesRadiographies, radioDateComparator);
+	}
 	public static void main(String args[]) {
 		String ch = System.getProperty("user.dir");
 		System.out.println(ch);
@@ -260,9 +275,9 @@ public class CentreRadio {
 		
 		System.out.println("personeConnecte " + cr.isPersConnecte());
 		
-		cr.creerRadiographie(cr.lesPatients.get(0), "26/09/2014", "compterendu.txt",
+		cr.creerRadiographie(cr.lesPatients.get(0), new Date("26/09/2014"), "compterendu.txt",
 				Etat.effectuée, TypeRadio.echographieUltraSons, 2);
-		cr.creerRadiographie(cr.lesPatients.get(0), "27/09/2014", "compterendu.txt",
+		cr.creerRadiographie(cr.lesPatients.get(0), new Date("27/09/2014"), "compterendu.txt",
 				Etat.planifiée, TypeRadio.IRM, 0);
 		cr.affichePatients();
 		cr.afficheRadiographie();
