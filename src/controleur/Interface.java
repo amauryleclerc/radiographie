@@ -207,11 +207,62 @@ public class Interface {
 	}
 	
 	private void modifierRadiographie() {
-		System.out.println("Modifier une radiographie :");
+		System.out.println("Modifier un patient");
+		this.afficheRadiographie();
+		System.out.println("numero de la radiographie à modifier:");
+		int numRadio = Lire.i() - 1;
+		// cr.afficheToutUnPatient(numPatient);
+		System.out.println("Taper");
+		System.out.println("1 - pour changer l'etat");
+		System.out.println("2 - pour modifier le compte rendu");
+		System.out.println("3 - pour ajouter des clichés");
+		System.out.println("choix :");
+		String choix = Lire.S();
+		switch (choix) {
+		case "1":
+			cr.changerEtatRadio(numRadio);
+			break;
+		case "2":
+			System.out.println("Compte rendu :");
+			String text = Lire.S();
+			cr.ajouterCompteRenduRadio(numRadio, text);
+			break;
+		case "3":
+			System.out.println("Nombres de clichés :");
+			int nbCliches = Lire.i();
+			cr.ajouterClicheRadio(numRadio, nbCliches);
+			break;
+		default:
+			break;
+		}
+		
+		try {
+			cr.enregistrer(ch);
+		} catch (IOException e) {
+			System.out.println("Erreur : enregistrement impossible");
+		}
 	}
 	
 	private void supprimerRadiographie() {
 		System.out.println("Supprimmer une radiographie :");
+		this.afficheRadiographie();
+		System.out.println("numero de la radiographie a supprimer:");
+		int numRadio = Lire.i() - 1;
+		System.out.print("Confirmation de suppression de :");
+		cr.afficheUneRadiographie(numRadio);
+		System.out.println("(o/n)");
+		char choix = Lire.c();
+		if (choix == 'o') {
+			cr.supprimerRadiographie(numRadio);
+			try {
+				cr.enregistrer(ch);
+			} catch (IOException e) {
+				System.out.println("Erreur : enregistrement impossible");
+			}
+		} else {
+			System.out.println("Annulation");
+		}
+		
 	}
 	
 	private void trierRadiographie() {

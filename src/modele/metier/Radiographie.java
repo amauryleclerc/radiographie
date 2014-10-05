@@ -1,5 +1,6 @@
 package modele.metier;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 //Classe Radiographie
 public class Radiographie {
@@ -9,7 +10,7 @@ public class Radiographie {
 	private static int lastNumExam = 0;
 	private int numExam;
 	private Date datePrise;
-	private CompteRendu compteRendu;
+	private String compteRendu;
 	private Etat etat;
 	private TypeRadio typeRadio;
 	private Patient patient;
@@ -62,7 +63,7 @@ public class Radiographie {
 		Radiographie.lastNumExam = lastNumExam;
 	}
 
-	public void setCompteRendu(CompteRendu compteRendu) {
+	public void setCompteRendu(String compteRendu) {
 		this.compteRendu = compteRendu;
 	}
 
@@ -102,7 +103,7 @@ public class Radiographie {
 		return lastNumExam;
 	}
 
-	public CompteRendu getCompteRendu() {
+	public String getCompteRendu() {
 		return compteRendu;
 	}
 
@@ -123,8 +124,8 @@ public class Radiographie {
 	}
 	//Méthode d'affichage des informations concernant les radiographies
 	public void afficher() {
-		// TODO Auto-generated method stub
-		System.out.println(this.numExam+" "+this.typeRadio+" "+this.datePrise+" "+this.getEtat());
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		System.out.println(this.numExam+" "+this.typeRadio+" "+sdf.format(this.datePrise)+" "+this.getEtat()+" "+this.patient.getPrenom()+" "+this.patient.getNom());
 	}
 
 	public Praticien getPraticien() {

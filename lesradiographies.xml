@@ -9,9 +9,9 @@
      </object>
     </void>
     <void property="etat">
-     <object class="java.lang.Enum" method="valueOf">
+     <object class="java.lang.Enum" id="Etat0" method="valueOf">
       <class>modele.metier.Etat</class>
-      <string>effectuée</string>
+      <string>planifiée</string>
      </object>
     </void>
     <void property="mesCliches">
@@ -41,7 +41,7 @@
        <string>tmartineau</string>
       </void>
       <void property="mdp">
-       <string>AdE4hE</string>
+       <string>4BfAU0</string>
       </void>
       <void property="mesRadiographie">
        <object class="java.util.ArrayList">
@@ -56,10 +56,7 @@
            </object>
           </void>
           <void property="etat">
-           <object class="java.lang.Enum" method="valueOf">
-            <class>modele.metier.Etat</class>
-            <string>planifiée</string>
-           </object>
+           <object idref="Etat0"/>
           </void>
           <void property="mesCliches">
            <object class="java.util.ArrayList"/>
