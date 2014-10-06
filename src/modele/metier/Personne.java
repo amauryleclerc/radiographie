@@ -1,7 +1,7 @@
 package modele.metier;
 
 import java.util.Random;
-/*
+/**
  * Classe abstraite Personne
  */
 public abstract class Personne {
@@ -58,13 +58,19 @@ public abstract class Personne {
 	public void setMdp(String mdp) {
 		this.mdp = mdp;
 	}
-//Méthode compareMdp sert à vérifier si le mdp entré au clavier est égal au mdp enregistrer
+/**
+ * Méthode compareMdp </br>
+ * sert à vérifier si le mdp entré au clavier est égal au mdp enregistrer
+ * @param mdp
+ * @return
+ */
 	public boolean compareMdp(String mdp){
 		return this.mdp.equals(mdp);
 	}//Fin de la méthode compareMdp
-/*Méthode newidentiant
- * Elle permet de générer aléatoirement un mot de passe en utilisant les lettres maj et min et les chiffres de 0 à 9.
- * Elle permet de génerer un login en utilisant le nomp et prénom entré au clavier
+/**
+ * Méthode newidentiant</br>
+ * Elle permet de générer aléatoirement un mot de passe en utilisant les lettres maj et min et les chiffres de 0 à 9.</br>
+ * Elle permet de génerer un login en utilisant le nomp et prénom entré au clavier</br>
  * le login est composé de la première lettre du prénom suivi du nom complet
  */
 public void newidentifiant(){
@@ -82,7 +88,10 @@ public void newidentifiant(){
       System.out.println("login : "+this.login+" mdp :"+this.mdp);
 }//Fin de la méthode newidentifiant
 
-//Méthode affiche qui permet l'affichage du nom et du prénom
+/**
+ * Méthode affiche</br> 
+ * qui permet l'affichage du nom et du prénom
+ */
 public void afficher(){
 	System.out.println(this.getNom()+" "+this.getPrenom());
 }

@@ -14,7 +14,7 @@ import tools.XMLTools;
 //Classe CentreRadio
 public class CentreRadio {
 	
-	/**Attributs
+	/**Attributs</br>
 	 * ArrayList Pour chaque type de personne et pour les différentes radiographies
 	 */
 	private ArrayList<Radiographie> lesRadiographies;
@@ -44,7 +44,8 @@ public class CentreRadio {
 	public Personne getPersonneConnecte() {
 		return personneConnecte;
 	}
-	/**Méthodes permettant de vérifier quel type de personne est connecté
+	/**Méthodes </br>
+	 * permettant de vérifier quel type de personne est connecté</br>
 	 * Praticien ou Secretaire ou Patient
 	 */
 	public boolean isPraticienConnecte() {
@@ -73,7 +74,8 @@ public class CentreRadio {
 	
 
 	/**
-	 * Méthodes qui servent a créer un type de personne selon 
+	 * Méthodes </br>
+	 * qui servent a créer un type de personne selon 
 	 * leur paramètre propre à chacun
 	 */
 	public void creerPatient(String nom, String prenom, String numSECU) {
@@ -89,7 +91,16 @@ public class CentreRadio {
 	}
 	
 
-	//Méthodes qui permetent de créer une radiographie seulement si c'est un prtaticien connecté
+	/**
+	 * Méthodes creerRadiographie</br>
+	 *  qui permettent de créer une radiographie seulement si c'est un prtaticien connecté
+	 * @param patient
+	 * @param datePrise
+	 * @param compteRendu
+	 * @param etat
+	 * @param typeRadio
+	 * @param nbRadio
+	 */
 	public void creerRadiographie(Patient patient, Date datePrise, String compteRendu, Etat etat,
 			TypeRadio typeRadio, int nbRadio) {
 		if (!isPraticienConnecte()) {
@@ -121,7 +132,8 @@ public class CentreRadio {
 		
 	}
 	/**
-	 * Méthode qui permet d'afficher les radiographies
+	 * Méthode afficheRadiographies</br> 
+	 * qui permet d'afficher les radiographies
 	 */
 	public void afficheRadiographies() {
 		
@@ -131,13 +143,21 @@ public class CentreRadio {
 			uneRadiographie.afficher();
 		}
 	}
+	/**
+	 * Méthode supprimerRadiographie</br>
+	 * permet de supprimer une radiographie
+	 * @param num
+	 */
 	public void supprimerRadiographie(int num) {
 		System.out.println("Suppression de :");
 		this.lesRadiographies.get(num).getPatient().getMesRadiographie().remove(this.lesRadiographies.get(num));
 		this.lesRadiographies.remove(num).afficher();;
 		
 	}
-	//Méthode qui affiche la liste des patients enregistrés
+	/**
+	 * Méthode affichePatients</br>
+	 * qui affiche la liste des patients enregistrés
+	 */
 	public void affichePatients() {
 		int i = 0;
 		for (Patient unPatient : lesPatients) {
@@ -146,21 +166,36 @@ public class CentreRadio {
 			unPatient.afficher();
 		}
 	}
-	//Méthode qui permet d'afficher un seul patient
+	/**
+	 * Méthode afficheUnPatient</br>
+	 * qui permet d'afficher un seul patient
+	 * @param num
+	 */
 	public void afficheUnPatient(int num) {
 		this.lesPatients.get(num).afficher();
 		
 	}
-	//Méthode qui permet d'afficher un patient et ces informations grâce a la méthode afficheTout de patient
+	/**
+	 * Méthode afficheToutUnPatient</br>
+	 * qui permet d'afficher un patient et ces informations grâce a la méthode afficheTout de patient
+	 * @param num
+	 */
 	public void afficheToutUnPatient(int num) {
 		this.lesPatients.get(num).afficheTout();
 		
 	}
-	//Méthode qui sert a regénérer les identifiant d'un patient
+	/**
+	 * Méthode regenererIdUnPatient</br>
+	 * qui sert a regénérer les identifiant d'un patient
+	 * @param num
+	 */
 	public void regenererIdUnPatient(int num) {
 		this.lesPatients.get(num).newidentifiant();
 	}
-	//Méthode qui sert a afficher une radiographie
+	/**
+	 * Méthode afficheRadiographie </br>
+	 * qui sert a afficher une radiographie
+	 */
 	public void afficheRadiographie() {
 		int i = 0;
 		for (Radiographie unRadiographie : lesRadiographies) {
@@ -172,7 +207,11 @@ public class CentreRadio {
 	public void afficheUneRadiographie(int numRadio) {
 		this.lesPatients.get(numRadio).afficher();
 	}
-	//Méthode qui permet de supprimer un patient
+	/**
+	 * Méthode supprimerPatient</br>
+	 *  qui permet de supprimer un patient
+	 * @param num
+	 */
 	public void supprimerPatient(int num) {
 		System.out.println("Suppression de :");
 		this.lesPatients.remove(num).afficher();
@@ -180,11 +219,12 @@ public class CentreRadio {
 	}
 	
 	/**
-	 * 
+	 * Méthode connexion</br>
+	 *  pour la connexion selon le type de personne reconnu grâce au mdp et au login
 	 * @param login
 	 * @param mdp
 	 */
-	//méthode pour la connexion selon le type de personne reconnu grâce au mdp et au login
+	//
 	public boolean connexion(String login, String mdp) {
 		this.deconnexion();
 		for (Patient unPatient : lesPatients) {
@@ -214,7 +254,10 @@ public class CentreRadio {
 		System.out.println("login ou mot de passe incorrect");
 		return false;
 	}
-	//Méthode qui permet de se déconnecter
+	/**
+	 * Méthode deconnexion</br>
+	 * qui permet de se déconnecter
+	 */
 	public void deconnexion() {
 		if (this.personneConnecte != null) {
 			System.out.println("Déconnection de " + this.personneConnecte.getPrenom() + " "
@@ -228,7 +271,13 @@ public class CentreRadio {
 	public boolean isPersConnecte() {
 		return (this.personneConnecte != null);
 	}
-	
+	/**
+	 * Méthode enregistrer</br>
+	 * Outil xml, permettant d'enregistrer des fichiers xml
+	 * @param fileLocation
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public void enregistrer(String fileLocation) throws FileNotFoundException, IOException {
 		
 		XMLTools.encodeToFile(this.lesPraticiens, fileLocation + "\\lespraticiens.xml");
@@ -236,7 +285,13 @@ public class CentreRadio {
 		XMLTools.encodeToFile(this.lesRadiographies, fileLocation + "\\lesradiographies.xml");
 		XMLTools.encodeToFile(this.lesSecretaires, fileLocation + "\\lessecretaires.xml");
 	}
-	
+	/**
+	 * Méthode charger</br>
+	 * permet de charger les fichiers xml auparavant enregitrés
+	 * @param fileLocation
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	@SuppressWarnings("unchecked")
 	public void charger(String fileLocation) throws FileNotFoundException, IOException {
 		
@@ -249,19 +304,36 @@ public class CentreRadio {
 		this.lesSecretaires = (ArrayList<Secretaire>) XMLTools.decodeFromFile(fileLocation
 				+ "\\lessecretaires.xml");
 	}
-	
+	/**
+	 * Méthode trierRadioParNum </br>
+	 * permet de trier les radiographies par leur numéro
+	 */
 	public void trierRadioParNum(){
 		RadioNumComparator radioNumComparator = new RadioNumComparator();
 		Collections.sort(lesRadiographies, radioNumComparator);
 	}
+	/**
+	 * Méthode trierRadioParPatient </br>
+	 * permet de trier les radiographies par le nom du patient
+	 */
 	public void trierRadioParPatient(){
 		RadioPatientComparator radioPatientComparator = new RadioPatientComparator();
 		Collections.sort(lesRadiographies, radioPatientComparator);
 	}
+	/**
+	 * Méthode trierRadioParDate </br>
+	 * permet de trier les radiographies par Date de Prise
+	 * 
+	 */
 	public void trierRadioParDate(){
 		RadioDateComparator radioDateComparator = new RadioDateComparator();
 		Collections.sort(lesRadiographies, radioDateComparator);
 	}
+	/**
+	 * Méthode changerEtatRadio</br>
+	 * permet de chanter l'état de la radio en planifiée ou en effectué
+	 * @param numRadio
+	 */
 	public void changerEtatRadio(int numRadio){
 		 if(this.lesRadiographies.get(numRadio).getEtat() == Etat.effectuée){
 			 this.lesRadiographies.get(numRadio).setEtat(Etat.planifiée);
@@ -270,11 +342,23 @@ public class CentreRadio {
 		}
 		 System.out.println("Etat changé");
 	}
+	/**
+	 * Méthode ajouterCompteRendRadio</br>
+	 * permet de lier un compte rendu rédiger par le praticien à une radio
+	 * @param numRadio
+	 * @param text
+	 */
 	public void ajouterCompteRenduRadio(int numRadio, String text){
 		text = this.lesRadiographies.get(numRadio).getCompteRendu()+" /n "+text;
 		this.lesRadiographies.get(numRadio).setCompteRendu(text);
 		System.out.println("compte rendu ajouté");
 	}
+	/**
+	 * Méthode ajouterClicheRadio</br>
+	 * permet d'ajouter un cliché à une radio
+	 * @param numRadio
+	 * @param nbCliches
+	 */
 	public void ajouterClicheRadio(int numRadio, int nbCliches){
 		this.lesRadiographies.get(numRadio).ajouterCliches(nbCliches);
 		System.out.println("clichés ajouté");

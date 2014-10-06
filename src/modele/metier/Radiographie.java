@@ -44,6 +44,11 @@ public class Radiographie {
 		this.praticien = praticien;
 	}
 
+	/**
+	 * Méthode ajouterCliches</br>
+	 * Elle permet d'ajouter un cliché à une radiographie
+	 * @param nbCliches
+	 */
 	public void ajouterCliches(int nbCliches) {
 		int numCliches = this.mesCliches.size() + 1;
 		for (int i = 0; i < nbCliches; i++) {
@@ -114,7 +119,10 @@ public class Radiographie {
 	public TypeRadio getTypeRadio() {
 		return typeRadio;
 	}
-	//Méthode permettant de changer l'état de la radiographie
+	/**
+	 * Méthode changeEtat</br>
+	 * Elle permet de changer l'état d'une radiographie, en état Planifiée ou en état Effectuée
+	 */
 	public void changeEtat() {
 		if (this.etat.equals(Etat.effectuée)) {
 			this.etat = Etat.planifiée;
@@ -122,7 +130,10 @@ public class Radiographie {
 			this.etat = Etat.effectuée;
 		}
 	}
-	//Méthode d'affichage des informations concernant les radiographies
+	/**
+	 * Méthode afficher</br>
+	 * affichage des informations concernant les radiographies
+	 */
 	public void afficher() {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		System.out.println(this.numExam+" "+this.typeRadio+" "+sdf.format(this.datePrise)+" "+this.getEtat()+" "+this.patient.getPrenom()+" "+this.patient.getNom());

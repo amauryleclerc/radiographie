@@ -1,8 +1,8 @@
 package modele.metier;
 
 import java.util.ArrayList;
-/*
- * Classe PAtient
+/**
+ * Classe Patient</br>
  * elle hérite de la classe Personne
  */
 public class Patient extends Personne {
@@ -28,7 +28,9 @@ public class Patient extends Personne {
 		this.numSECU = numSECU;
 		mesRadiographie = new  ArrayList<Radiographie>();
 	}
-	//la méthode toString,renvoie une chaîne de caractères servant à décrire l'objet concerné
+	/*la méthode toString,
+	 * renvoie une chaîne de caractères servant à décrire l'objet concerné
+	 */
 	@Override
 	public String toString() {
 		return "Patient [numSECU=" + numSECU + ", mesRadiographie="
@@ -51,11 +53,17 @@ public class Patient extends Personne {
 	public void setMesRadiographie(ArrayList<Radiographie> mesRadiographie) {
 		this.mesRadiographie = mesRadiographie;
 	}
-	//Méthode permettant d'afficher le nom,prénom et numéro de sécu d'un patient
+	/**
+	 * Méthode afficher</br>
+	 * permettant d'afficher le nom, prénom et numéro de sécu d'un patient
+	 */
 	public void afficher(){
 		System.out.println(this.getNom()+" "+this.getPrenom()+" "+this.getNumSECU());
 	}
-	//Méthode permettant d'afficher les radiographies du patient ansisi que c'est informations de base.
+	/**
+	 * Méthode afficheTout</br>
+	 * permet d'afficher les radiographies du patient ainsi que c'est informations de base.
+	 */
 	public void afficheTout(){
 		System.out.println(" "+this.getNom()+" "+this.getPrenom()+" "+this.getNumSECU());
 		for(Radiographie radio : this.mesRadiographie){

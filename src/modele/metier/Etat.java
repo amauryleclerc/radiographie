@@ -1,6 +1,6 @@
 package modele.metier;
-/*
- * Classe d'énumération d'état
+/**
+ * Classe d'énumération Etat</br>
  * Elle permet de définir l'état d'une radiographie
  */
 public enum Etat {

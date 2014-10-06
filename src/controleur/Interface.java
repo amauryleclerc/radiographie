@@ -34,7 +34,10 @@ public class Interface {
 		in.connexion();
 	}
 	
-	// Méthode pour gérer la connexion via la console
+	/**
+	 * Méthode connexion</br>
+	 * pour gérer la connexion via la console
+	 */
 	private void connexion() {
 		System.out.println("Bienvenue");
 		System.out.println("Login :");
@@ -51,8 +54,10 @@ public class Interface {
 		
 	}
 	
-	// Méthode qui affiche le menu principal avec les différentes possibilités
-	// d'actions selon le type de personne
+	/**
+	 * Méthode menuPrincipal</br>
+	 * qui affiche le menu principal avec les différentes possibilités d'actions selon le type de personne
+*/
 	private void menuPrincipal() {
 		
 		if (cr.isPraticienConnecte()) {
@@ -198,7 +203,10 @@ public class Interface {
 		
 	}
 	
-	// Méthode pour afficher,modifier,supprimer les radiographies
+	/**
+	 * Méthodes pour afficher,modifier,supprimer les radiographies
+	 */
+	
 	private void afficheRadiographie() {
 		System.out.println("Afficher les radiographie :");
 		this.trierRadiographie();
@@ -283,7 +291,9 @@ public class Interface {
 		
 	}
 	
-	// Méthode qui sert a créer un patient
+	/**
+	 *  Méthode qui sert a créer un patient
+	 */
 	private void creerPatient() {
 		System.out.println("Création d'un patient :");
 		System.out.println("nom :");
@@ -300,7 +310,9 @@ public class Interface {
 		}
 	}
 	
-	// Méthode qui permet de modifier un patient
+	/**
+	 *  Méthode qui permet de modifier un patient
+	 */
 	private void modifierPatient() {
 		System.out.println("Modifier un patient");
 		this.affichePatients();
@@ -326,13 +338,17 @@ public class Interface {
 		}
 	}
 	
-	// Méthode pour afficher un patient
+	/**
+	 *  Méthode pour afficher un patient
+	 */
 	private void affichePatients() {
 		System.out.println("Les patients :");
 		cr.affichePatients();
 	}
 	
-	// Méthode pour supprimer un patient
+	/**
+	 *  Méthode pour supprimer un patient
+	 */
 	private void supprimerPatient() {
 		System.out.println("Supprimer un patient");
 		this.affichePatients();

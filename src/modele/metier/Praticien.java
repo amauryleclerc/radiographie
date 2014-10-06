@@ -1,6 +1,7 @@
 package modele.metier;
-/*
- * Classe Praticien hériant de la classe Personne
+/**
+ * Classe Praticien </br>
+ * héritant de la classe Personne
  */
 public class Praticien extends Personne {
 	

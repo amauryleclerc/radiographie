@@ -1,6 +1,6 @@
 package modele.metier;
-/*
- * Classe Secrétaire
+/**
+ * Classe Secretaire </br>
  * Elle hérite de la classe Personne
  */
 public class Secretaire extends Personne {
