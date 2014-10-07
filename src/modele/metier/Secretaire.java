@@ -1,5 +1,10 @@
 package modele.metier;
 /**
+ * 
+ * @author Amaury Leclerc et Thomas Martineau
+ *
+ */
+/**
  * Classe Secretaire </br>
  * Elle hérite de la classe Personne
  */

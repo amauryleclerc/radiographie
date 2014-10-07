@@ -1,6 +1,11 @@
 package modele.metier;
 
 import java.text.SimpleDateFormat;
+/**
+ * 
+ * @author Amaury Leclerc et Thomas Martineau
+ *
+ */
 import java.util.*;
 //Classe Radiographie
 public class Radiographie {

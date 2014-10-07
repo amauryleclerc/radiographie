@@ -10,7 +10,11 @@ import modele.comparator.RadioDateComparator;
 import modele.comparator.RadioNumComparator;
 import modele.comparator.RadioPatientComparator;
 import tools.XMLTools;
-
+/**
+ * 
+ * @author Amaury Leclerc et Thomas Martineau
+ *
+ */
 //Classe CentreRadio
 public class CentreRadio {
 	

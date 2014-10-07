@@ -1,5 +1,10 @@
 package modele.metier;
 /**
+ * 
+ * @author Amaury Leclerc et Thomas Martineau
+ *
+ */
+/**
  * Classe d'énumération TypeRadio
  * Elle permet de définir le type de radiographie ajouté.
  */

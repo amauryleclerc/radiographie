@@ -1,5 +1,9 @@
 package modele.metier;
-
+/**
+ * 
+ * @author Amaury Leclerc et Thomas Martineau
+ *
+ */
 import java.util.Random;
 /**
  * Classe abstraite Personne

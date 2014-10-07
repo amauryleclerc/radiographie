@@ -7,7 +7,11 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
+/**
+ * 
+ * @author Amaury Leclerc et Thomas Martineau
+ *
+ */
 public final class XMLTools {
 
     private XMLTools() {}

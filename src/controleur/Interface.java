@@ -10,6 +10,11 @@ import modele.metier.Etat;
 import modele.metier.Patient;
 import modele.metier.TypeRadio;
 
+/**
+ * 
+ * @author Amaury Leclerc et Thomas Martineau
+ *
+ */
 //Classe interface
 public class Interface {
 	// Attributs

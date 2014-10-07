@@ -1,5 +1,10 @@
 package modele.metier;
 /**
+ * 
+ * @author Amaury Leclerc et Thomas Martineau
+ *
+ */
+/**
  * Classe Praticien </br>
  * héritant de la classe Personne
  */

@@ -3,7 +3,11 @@ package modele.comparator;
 import java.util.Comparator;
 
 import modele.metier.Radiographie;
-
+/**
+ * 
+ * @author Amaury Leclerc et Thomas Martineau
+ *
+ */
 public class RadioDateComparator implements Comparator<Radiographie> {
 
 	@Override

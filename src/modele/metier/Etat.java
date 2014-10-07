@@ -1,5 +1,10 @@
 package modele.metier;
 /**
+ * 
+ * @author Amaury Leclerc et Thomas Martineau
+ *
+ */
+/**
  * Classe d'énumération Etat</br>
  * Elle permet de définir l'état d'une radiographie
  */
